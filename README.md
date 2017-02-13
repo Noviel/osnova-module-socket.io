@@ -28,8 +28,8 @@ Takes optional `opts` object as a parameter with properties:
 - **middlewares** { array } - Socket.IO middlewares list.
 
 Exports to osnova `io` object with interface:
-- `native()` { function } return inner Socket.IO object.
-- `on(eventName, callback)` { function } - add an event for connected sockets. 
+- **native()** { function } return inner Socket.IO object.
+- **on(eventName, callback)** { function } - add an event for connected sockets. 
 Callback will 
 be called with `(socket, payload)` parameters when socket 
 triggers an event.
