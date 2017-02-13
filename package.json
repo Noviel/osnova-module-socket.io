@@ -1,0 +1,31 @@
+{
+  "name": "osnova-module-socket.io",
+  "version": "0.1.0",
+  "description": "Osnova socket.io module",
+  "keywords": [
+    "osnova",
+    "module",
+    "socket.io"
+  ],
+  "author": "Aleksandr Snov <snov.contact@gmail.com>",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Noviel/osnova-module-socket.io.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src",
+    "build": "babel src --out-dir dist",
+    "major-release": "npm --no-git-tag-version version major && npm publish",
+    "minor-release": "npm --no-git-tag-version version minor && npm publish",
+    "patch-release": "npm --no-git-tag-version version patch && npm publish"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-eslint": "^7.1.1",
+    "babel-preset-latest": "^6.22.0",
+    "eslint": "^3.15.0"
+  }
+}
