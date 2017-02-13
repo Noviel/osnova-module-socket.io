@@ -5,9 +5,9 @@
 Basic Socket.IO wrapper exported as osnova module.
 
 ## Install
-
-    npm i osnova-module-socket.io
-    
+```sh
+npm i osnova-module-socket.io
+```
 ## Usage
 
 ```javascript
@@ -43,4 +43,8 @@ const myMiddleware = (osnova) => (socket, next) => {
  console.log(`Hey, i have access to OSNOVA version ${osnova.__version} here!`);
  next();
 }
+
+socketIoModule({
+  middlewares: [myMiddleware]
+});
 ```

@@ -1,7 +1,7 @@
 {
   "name": "osnova-module-socket.io",
-  "version": "0.4.2",
-  "description": "Osnova socket.io module",
+  "version": "0.4.3",
+  "description": "Osnova Socket.IO module",
   "keywords": [
     "osnova",
     "module",
