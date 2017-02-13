@@ -2,7 +2,7 @@
 
 ## bI?
 
-Basic socket.io wrapper exported as osnova module.
+Basic Socket.IO wrapper exported as osnova module.
 
 ## Install
 
