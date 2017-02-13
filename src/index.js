@@ -1,9 +1,35 @@
 // Created by snov on 23.06.2016.
 
-const f = (x) => x + '!';
+import IO from 'socket.io';
 
-/* eslint-disable no-unused-vars */
-const b = 1;
-/* eslint-enable no-unused-vars */
+// list of events for connected sockets
+const events = {};
 
-console.log(`I am linted by eslint and transpiled by babel ${f(', cool')}`);
+export default function({ http } = {}) {
+  return (osnova) => {
+    http = http || osnova.http;
+
+    const _io = new IO(http);
+
+    _io.on('connection', socket => {
+      Object.keys(events).forEach((curr, i) => {
+        socket.on(curr, events[curr].func);
+      });
+    });
+
+    const addFuncToObject = (target, id, func) => {
+      target[id] = {
+        func: func
+      };
+    };
+
+    osnova.next({
+      io: {
+        native() { return _io; },
+        on(id, func) {
+          addFuncToObject(events, id, func);
+        }
+      }
+    });
+  }
+}
