@@ -14,15 +14,16 @@ const addFuncToObject = (target, id, func) => {
 export default function({ http, middlewares } = {}) {
   return (osnova) => {
     http = http || osnova.http;
+    middlewares = middlewares || [];
 
     const _io = new IO(http);
 
-    Object.keys(middlewares).forEach((key, i) => {
+    Object.keys(middlewares).forEach((key) => {
       _io.use(middlewares[key](osnova));
     });
 
     _io.on('connection', socket => {
-      Object.keys(events).forEach((curr, i) => {
+      Object.keys(events).forEach((curr) => {
         socket.on(curr, (payload) => { events[curr].func(socket, payload); });
       });
     });
