@@ -18,12 +18,12 @@ export default function({ http, middlewares } = {}) {
     const _io = new IO(http);
 
     Object.keys(middlewares).forEach((key, i) => {
-      _io.use(middlewares[key]);
+      _io.use(middlewares[key](osnova));
     });
 
     _io.on('connection', socket => {
       Object.keys(events).forEach((curr, i) => {
-        socket.on(curr, events[curr].func);
+        socket.on(curr, (payload) => { events[curr].func(socket, payload); });
       });
     });
 
