@@ -25,10 +25,10 @@ const osnova = OSNOVA({
 
 Takes optional `opts` object as a parameter with properties:
 - **http** { object } extern http server, if `undefined` will be used `osnova.http`.
-- **middlewares** { array } - native Socket.IO middlewares list.
+- **middlewares** { array } - Socket.IO middlewares list.
 
 Exports to osnova `io` object with interface:
-- `native()` { function } return inner socket.io object.
+- `native()` { function } return inner Socket.IO object.
 - `on(eventName, callback)` { function } - add an event for connected sockets. 
 Callback will 
 be called with `(socket, payload)` parameters when socket 
